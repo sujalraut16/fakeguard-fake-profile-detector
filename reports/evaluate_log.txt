@@ -1,0 +1,48 @@
+=== Test-set metrics ===
+  accuracy  : 0.9828
+  precision : 0.9897
+  recall    : 0.9756
+  f1        : 0.9826
+  roc_auc   : 0.9995
+
+Confusion matrix: TN=490  FP=5  FN=12  TP=480
+  FP = 5 REAL accounts wrongly called FAKE
+  FN = 12 FAKE accounts that slipped through as REAL
+
+Top 6 features (built-in importance):
+profile_pic                     0.200
+followers                       0.147
+posts                           0.147
+username_digit_ratio            0.131
+log_followers                   0.118
+followers_to_following_ratio    0.075
+
+Top 6 features (permutation importance, drop in test F1 when shuffled):
+profile_pic                     0.080
+username_digit_ratio            0.042
+followers_to_following_ratio    0.024
+posts                           0.004
+following                       0.003
+log_following                   0.003
+
+Effect of the decision threshold (default is 0.50):
+  threshold  precision  recall  false_positives  false_negatives
+  0.3        0.974      0.996   13               2
+  0.5        0.990      0.976   5                12
+  0.7        0.998      0.963   1                18
+  0.9        1.000      0.923   0                38
+
+=== Leakage / overfitting checks ===
+A) Rows appearing in BOTH train and test: 0
+B) Accuracy  train = 0.9985 | 5-fold CV = 0.9894 | test = 0.9828
+   Train-minus-test gap = 0.0157
+C) CV accuracy with SHUFFLED labels = 0.4935  (should be near 0.50)
+D) Best single-feature accuracy (small tree, 5-fold CV):
+profile_pic      0.884
+posts            0.867
+followers        0.863
+log_followers    0.863
+has_bio          0.836
+E) Majority-class baseline accuracy = 0.502
+
+Plots + metrics.json saved to reports/

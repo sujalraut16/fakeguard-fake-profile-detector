@@ -1,0 +1,24 @@
+
+--- Clearly FAKE ---
+Input: {'profile_pic': 0, 'username_digit_ratio': 0.45, 'fullname_words': 0, 'fullname_digit_ratio': 0.0, 'name_equals_username': 0, 'bio_length': 0, 'external_url': 0, 'private': 0, 'posts': 0, 'followers': 12, 'following': 25}
+Prediction : FAKE  (P(fake) = >99.9%, confidence = >99.9%, borderline = False)
+Top reasons:
+   - very few followers (12); a typical real account has about 653 followers
+   - no profile picture
+   - no posts; a typical real account has about 77 posts
+
+--- Clearly REAL ---
+Input: {'profile_pic': 1, 'username_digit_ratio': 0.0, 'fullname_words': 2, 'fullname_digit_ratio': 0.0, 'name_equals_username': 0, 'bio_length': 70, 'external_url': 1, 'private': 0, 'posts': 240, 'followers': 1500, 'following': 480}
+Prediction : REAL  (P(fake) = <0.1%, confidence = >99.9%, borderline = False)
+Top reasons:
+   - 1,500 followers; a typical fake account has about 43 followers
+   - has a profile picture
+   - 240 posts; a typical fake account has about 0 posts
+
+--- BORDERLINE ---
+Input: {'profile_pic': 1, 'username_digit_ratio': 0.3, 'fullname_words': 2, 'fullname_digit_ratio': 0.0, 'name_equals_username': 0, 'bio_length': 10, 'external_url': 0, 'private': 0, 'posts': 15, 'followers': 150, 'following': 100}
+Prediction : FAKE  (P(fake) = 50.0%, confidence = 50.0%, borderline = True)
+Top reasons:
+   - many digits in the username (30% of characters)
+   - 150 followers; a typical real account has about 653 followers
+   - 15 posts; a typical real account has about 77 posts

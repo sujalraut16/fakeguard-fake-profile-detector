@@ -1,0 +1,15 @@
+# Locks the app to a light theme so it looks the same in light and dark browsers.
+[theme]
+base = "light"
+primaryColor = "#0F766E"
+backgroundColor = "#F5F7FA"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#16212E"
+borderColor = "#C9D2DC"
+font = "sans serif"
+
+[client]
+toolbarMode = "minimal"      # hides the Deploy button
+
+[browser]
+gatherUsageStats = false     # also stops the "enter your email" prompt

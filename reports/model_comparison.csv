@@ -1,0 +1,4 @@
+Model,CV F1 (mean),CV F1 (std),Test Accuracy,Test Precision,Test Recall,Test F1,Test ROC-AUC
+Random Forest,0.9893,0.0036,0.9828,0.9897,0.9756,0.9826,0.9995
+Logistic Regression,0.9671,0.0073,0.9595,0.9748,0.9431,0.9587,0.993
+Decision Tree,0.977,0.0057,0.9737,0.9794,0.9675,0.9734,0.9866
